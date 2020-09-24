@@ -1,0 +1,3 @@
+[submodule "Paczkomaty24"]
+	path = Paczkomaty24
+	url = https://github.com/kamilgwozdziowski/magento24-paczkomaty.git
