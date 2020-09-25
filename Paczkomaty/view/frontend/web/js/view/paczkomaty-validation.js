@@ -3,7 +3,7 @@ define(
         'uiComponent',
         'Magento_Checkout/js/model/shipping-rates-validator',
         'Magento_Checkout/js/model/shipping-rates-validation-rules',
-        '../model/shipping-rates-validation',
+        '../model/shipping-rates-validator',
         '../model/shipping-rates-validation-rules'
     ],
     function (
@@ -14,6 +14,8 @@ define(
         shippingRatesValidationRules
     ) {
         'use strict';
+        console.log('paczkomaty:=');
+        console.log(shippingRatesValidator);
         defaultShippingRatesValidator.registerValidator('carrierName', shippingRatesValidator);
         defaultShippingRatesValidationRules.registerRules('carrierName', shippingRatesValidationRules);
         return Component;
