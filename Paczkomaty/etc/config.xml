@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <carriers>
-            <customshipping>
+            <paczkomaty>
                 <active>0</active>
                 <title>Paczkomaty InPost</title>
                 <name>Dostawa na paczkomaty</name>
@@ -10,7 +10,7 @@
                 <sallowspecific>0</sallowspecific>
                 <sort_order>15</sort_order>
                 <model>MylSoft\Paczkomaty\Model\Carrier\Paczkomaty</model>
-            </customshipping>
+            </paczkomaty>
         </carriers>
     </default>
 </config>

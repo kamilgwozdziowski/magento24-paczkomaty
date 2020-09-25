@@ -14,7 +14,7 @@ class Paczkomaty extends AbstractCarrier implements CarrierInterface
     /**
      * @var string
      */
-    protected $_code = 'customshipping';
+    protected $_code = 'paczkomaty';
 
     /**
      * @var bool
