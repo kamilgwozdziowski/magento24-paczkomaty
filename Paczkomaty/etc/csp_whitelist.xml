@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="devdocs-base11" type="host">geowidget.easypack24.net</value>
+                <value id="devdocs-base22" type="host">unpkg.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="devdocs-base3" type="host">geowidget.easypack24.net</value>
+                <value id="devdocs-base2" type="host">unpkg.com</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="devdocs-base4" type="host">geowidget.easypack24.net</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
