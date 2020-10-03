@@ -1,21 +1,49 @@
 <?xml version="1.0"?>
-<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
     <policies>
+        <policy id="default-src">
+            <values>
+                <value id="api-pl-points" type="host">api-pl-points.easypack24.net</value>
+                <value id="googleapis" type="host">maps.googleapis.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="api-pl-points-connect" type="host">api-pl-points.easypack24.net</value>
+                <value id="googleapis-connect" type="host">maps.googleapis.com</value>
+            </values>
+        </policy>
         <policy id="script-src">
             <values>
-                <value id="devdocs-base11" type="host">geowidget.easypack24.net</value>
-                <value id="devdocs-base22" type="host">unpkg.com</value>
+                <value id="geowidget-script" type="host">geowidget.easypack24.net</value>
+                <value id="unpkg-script" type="host">unpkg.com</value>
+                <value id="data-script" type="host">data:</value>
+                <value id="googleapis-script" type="host">maps.googleapis.com</value>
             </values>
         </policy>
         <policy id="style-src">
             <values>
-                <value id="devdocs-base3" type="host">geowidget.easypack24.net</value>
-                <value id="devdocs-base2" type="host">unpkg.com</value>
+                <value id="geowidget-css" type="host">geowidget.easypack24.net</value>
+                <value id="unpkg-css" type="host">unpkg.com</value>
+                <value id="maxcdn-css" type="host">maxcdn.bootstrapcdn.com</value>
+                <value id="googleapis-css" type="host">fonts.googleapis.com</value>
             </values>
         </policy>
         <policy id="font-src">
             <values>
-                <value id="devdocs-base4" type="host">geowidget.easypack24.net</value>
+                <value id="geowidget-base4" type="host">geowidget.easypack24.net</value>
+                <value id="gstatic-font" type="host">fonts.gstatic.com</value>
+                <value id="googleapis-font" type="host">fonts.googleapis.com</value>
+                <value id="maxcdn-font" type="host">maxcdn.bootstrapcdn.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="geowidget-img" type="host">geowidget.easypack24.net</value>
+                <value id="data-img" type="host">data:</value>
+                <value id="googleapis-img" type="host">maps.googleapis.com</value>
+                <value id="gstatic-img" type="host">maps.gstatic.com</value>
             </values>
         </policy>
     </policies>

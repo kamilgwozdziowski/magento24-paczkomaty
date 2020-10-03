@@ -23,8 +23,9 @@
         attr="'id': 'label_method_' + method.method_code + '_' + method.carrier_code"
         text="method.method_title" />
     <td class="col col-carrier"
-        attr="'id': '' + method.method_code + '_' + method.carrier_code"
-        text="method.carrier_title" />
+        attr="'id': '' + method.method_code + '_' + method.carrier_code">
+        <p text="method.carrier_title" />
+    </td>
 </tr>
 <tr class="row row-error"
     if="method.error_message">

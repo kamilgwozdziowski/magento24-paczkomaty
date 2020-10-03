@@ -5,10 +5,5 @@ var config = {
                  "MylSoft_Paczkomaty/js/view/shipping-mixin": true
              }
          }
-     },
-     map: {
-        '*': {
-            paczkomaty: 'MylSoft_Paczkomaty/js/view/paczkomaty'
-        }
-    }
+     }
  }

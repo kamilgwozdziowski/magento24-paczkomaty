@@ -2,7 +2,6 @@
     <head>
         <css src="https://geowidget.easypack24.net/css/easypack.css"  src_type="url" />
         <script src="https://geowidget.easypack24.net/js/sdk-for-javascript.js" src_type="url"/>
-        <link src="MylSoft_Paczkomaty::js/main.js"/>
     </head>
     <body>
         <referenceBlock name="checkout.root">
@@ -15,21 +14,11 @@
                                     <item name="children" xsi:type="array">
                                         <item name="shipping-step" xsi:type="array">
                                             <item name="children" xsi:type="array">
-                                                <item name="step-config" xsi:type="array">
-                                                    <item name="children" xsi:type="array">
-                                                        <item name="shipping-rates-validation" xsi:type="array">
-                                                            <item name="children" xsi:type="array">
-                                                                <item name="paczkomaty_paczkomaty-validation" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">MylSoft_Paczkomaty/js/view/paczkomaty-validation</item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
-                                                    </item>
-                                                </item>
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <item name="config" xsi:type="array">
-                                                        <item name="shippingMethodItemTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-item-template</item>
+                                                        <item name="template" xsi:type="string">MylSoft_Paczkomaty/shipping</item>
                                                         <item name="shippingMethodListTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-list-template</item>
+                                                        <item name="shippingMethodItemTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-item-template</item>
                                                     </item>
                                                 </item>
                                             </item>
