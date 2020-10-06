@@ -1,14 +1,24 @@
 define([
     'jquery',
-], function ($) {
+    'uiComponent',
+    'ko',
+    'Magento_Checkout/js/model/quote',
+], function (
+    $,
+    uiComponent,
+    ko,
+    quote
+) {
     'use_strict';
 
-    return {
+    return uiComponent.extend({
 
-        isSelected: false,
-        selectedPoint: null,
+        initialize: function () {
+            this._super();
+            this.isSelected = ko.observable(false);
+            this.selectedPoint = ko.observable(null);
+            this.shippingMethod = ko.observable(quote.shippingMethod() != null ? quote.shippingMethod()['carrier_code'] : null);
 
-        init: function() {
             /** @TODO: api key do configu jakiegos */
             window.easyPack.init({
                 mapType: 'google',
@@ -24,9 +34,7 @@ define([
         },
 
         showModal: function () {
-            this.init();
-            self = this;
-            self.isSelected = true;
+            var self = this;
             /** @TODO: wielkosc tez do configu */
             window.easyPack.modalMap(function (point, modal) {
                 modal.closeModal();
@@ -34,9 +42,10 @@ define([
             }, {width: 500, height: 600});
         },
 
-        selectPoint: function(point) {
-            console.log(point.name);
-            this.selectedPoint = point.name;
+        selectPoint: function (point) {
+            this.isSelected(true)
+            this.selectedPoint(point.name);
+            console.log(quote.shippingMethod());
         },
 
         disabled: function () {
@@ -44,7 +53,7 @@ define([
             this.selectedPoint = null;
             this.isSelected = false;
         }
-    }
+    });
 });
 
 

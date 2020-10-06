@@ -5,5 +5,6 @@ var config = {
                  "MylSoft_Paczkomaty/js/view/shipping-mixin": true
              }
          }
-     }
+     },
+
  }

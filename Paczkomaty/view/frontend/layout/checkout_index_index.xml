@@ -16,7 +16,6 @@
                                             <item name="children" xsi:type="array">
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <item name="config" xsi:type="array">
-                                                        <item name="template" xsi:type="string">MylSoft_Paczkomaty/shipping</item>
                                                         <item name="shippingMethodListTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-list-template</item>
                                                         <item name="shippingMethodItemTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-item-template</item>
                                                     </item>

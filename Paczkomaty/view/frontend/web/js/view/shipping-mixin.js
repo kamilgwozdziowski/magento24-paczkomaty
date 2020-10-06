@@ -1,52 +1,34 @@
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
 define([
     'jquery',
     'underscore',
     'Magento_Ui/js/form/form',
     'ko',
+    'MylSoft_Paczkomaty/js/model/inpost',
     'Magento_Checkout/js/action/select-shipping-method',
     'Magento_Checkout/js/checkout-data',
-    'MylSoft_Paczkomaty/js/paczkomaty',
 ], function (
     $,
     _,
     Component,
     ko,
+    inpost,
     selectShippingMethodAction,
     checkoutData,
-    paczkomaty,
 ) {
     'use strict';
 
+    var mixin = {
 
-    return function (Component) {
-        return Component.extend({
-            isInPostSelect: ko.observable(false),
+        selectShippingMethod: function (shippingMethod) {
+            inpost.showModal();
+            selectShippingMethodAction(shippingMethod);
+            checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
 
-            selectShippingMethod: function (shippingMethod) {
-                if('paczkomaty' == shippingMethod['carrier_code'])
-                {
-                    paczkomaty.showModal();
-                }
-                else
-                {
-                    paczkomaty.disabled()
-                }
-                console.log(this.isInPostSelect);
-
-                selectShippingMethodAction(shippingMethod);
-                checkoutData.setSelectedShippingRate(shippingMethod['carrier_code'] + '_' + shippingMethod['method_code']);
-
-                return true;
-            },
-
-            getInPostSelect: ko.computed(function () {
-                return paczkomaty.isSelected;
-            }),
-        });
+            return true;
+        }
     };
+
+    return function (target) { // target == Result that Magento_Ui/.../default returns.
+        return target.extend(mixin); // new result that all other modules receive
+    }
 });
