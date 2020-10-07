@@ -6,6 +6,8 @@ define([
     'MylSoft_Paczkomaty/js/model/inpost',
     'Magento_Checkout/js/action/select-shipping-method',
     'Magento_Checkout/js/checkout-data',
+    'mage/utils/wrapper',
+    'Magento_Checkout/js/model/quote',
 ], function (
     $,
     _,
@@ -14,16 +16,18 @@ define([
     inpost,
     selectShippingMethodAction,
     checkoutData,
+    wrapper,
+    quote
 ) {
     'use strict';
 
     var mixin = {
+        selectedPaczkomat: quote.getSelectedPaczkomat(),
 
         selectShippingMethod: function (shippingMethod) {
-            inpost.showModal();
             selectShippingMethodAction(shippingMethod);
+            console.log(this.selectedPaczkomat);
             checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
-
             return true;
         }
     };

@@ -1,0 +1,5 @@
+<config>
+    <type name="\Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="mylsoft_paczkomaty_new_dield" type="\MylSoft\Paczkomaty\Plugin\CheckoutAttributesUpdater" sortOrder="1" disabled="false" />
+    </type>
+</config>
