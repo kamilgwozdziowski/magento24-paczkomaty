@@ -16,9 +16,16 @@
         </tr>
         </thead>
         <tbody>
-            <!-- ko foreach: { data: rates(), as: 'method'} -->
-                <!--ko template: { name: element.shippingMethodItemTemplate} --><!-- /ko -->
-            <!-- /ko -->
+        <!-- ko foreach: { data: rates(), as: 'method'} -->
+        <!--ko template: { name: element.shippingMethodItemTemplate} --><!-- /ko -->
+        <!-- /ko -->
         </tbody>
     </table>
+    <if args="isVisiblePaczkomat()">
+        <div>
+            <p>Wybrałeś paczkomat o numerze: <b data-bind="text: selectedPaczkomat()['name']"></b></p>
+            <p>Paczkomat znajduje sie na: <b data-bind="text: selectedPaczkomat()['address']['line1'] + ', ' + selectedPaczkomat()['address']['line2']"></b></p>
+        </div>
+        <button click="changeSelectedPaczkomat">Zmien paczkomat</button>
+    </if>
 </div>

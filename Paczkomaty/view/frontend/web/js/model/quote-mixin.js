@@ -7,17 +7,26 @@ define([
 
     return function (source) {
         var selectedPaczkomat = ko.observable(null);
+        var isVisiblePaczkomat = ko.observable(false);
 
         source.setSelectedPaczkomat = function (point) {
-            console.log('setSelectedPaczkomat');
-            var pointName = 'a';
-            selectedPaczkomat(pointName);
+
+            if (null === point) {
+                isVisiblePaczkomat(false);
+                selectedPaczkomat(null);
+            } else {
+                selectedPaczkomat(point);
+                isVisiblePaczkomat(true);
+            }
         };
 
         source.getSelectedPaczkomat = function () {
-            console.log('getSelectedPaczkomat');
             return selectedPaczkomat;
         };
+
+        source.getIsVisiblePaczkomaty = function () {
+            return isVisiblePaczkomat;
+        }
 
         return source;
     }

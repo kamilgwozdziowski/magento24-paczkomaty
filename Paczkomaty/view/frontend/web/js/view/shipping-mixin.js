@@ -3,8 +3,9 @@ define([
     'underscore',
     'Magento_Ui/js/form/form',
     'ko',
-    'MylSoft_Paczkomaty/js/model/inpost',
     'Magento_Checkout/js/action/select-shipping-method',
+    'MylSoft_Paczkomaty/js/action/change-selected-paczkomat',
+    'MylSoft_Paczkomaty/js/action/select-shipping-paczkomaty',
     'Magento_Checkout/js/checkout-data',
     'mage/utils/wrapper',
     'Magento_Checkout/js/model/quote',
@@ -13,8 +14,9 @@ define([
     _,
     Component,
     ko,
-    inpost,
     selectShippingMethodAction,
+    changeSelectedPaczkomat,
+    selectShippingPaczkomaty,
     checkoutData,
     wrapper,
     quote
@@ -23,12 +25,21 @@ define([
 
     var mixin = {
         selectedPaczkomat: quote.getSelectedPaczkomat(),
+        isVisiblePaczkomat: quote.getIsVisiblePaczkomaty(),
 
         selectShippingMethod: function (shippingMethod) {
             selectShippingMethodAction(shippingMethod);
-            console.log(this.selectedPaczkomat);
+
+            if (null !== shippingMethod && 'paczkomaty' == shippingMethod['method_code']) {
+                selectShippingPaczkomaty(shippingMethod);
+            }
+
             checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
             return true;
+        },
+
+        changeSelectedPaczkomat: function () {
+            changeSelectedPaczkomat();
         }
     };
 
