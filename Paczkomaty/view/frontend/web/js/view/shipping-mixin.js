@@ -29,14 +29,25 @@ define([
 
         selectShippingMethod: function (shippingMethod) {
             selectShippingMethodAction(shippingMethod);
-
             if (null !== shippingMethod && 'paczkomaty' == shippingMethod['method_code']) {
                 selectShippingPaczkomaty(shippingMethod);
+            } else {
+                quote.setSelectedPaczkomat(null);
             }
 
             checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
             return true;
         },
+
+        isSelected: ko.computed(function () {
+            console.log(quote.shippingAddress());
+            if (null !== quote.shippingMethod() && 'paczkomaty' == quote.shippingMethod()['method_code']) {
+                selectShippingPaczkomaty(quote.shippingMethod());
+            }
+            return quote.shippingMethod() ?
+                quote.shippingMethod()['carrier_code'] + '_' + quote.shippingMethod()['method_code'] :
+                null;
+        }),
 
         changeSelectedPaczkomat: function () {
             changeSelectedPaczkomat();
