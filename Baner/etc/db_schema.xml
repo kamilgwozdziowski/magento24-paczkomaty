@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mylsoft_baner_slider_group" resource="default" comment="Table for sliders group">
+        <column xsi:type="smallint" name="id" unsigned="true" identity="true" comment="Group ID"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Group name"/>
+        <column xsi:type="datetime" name="creation_time" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Crate datatime"/>
+        <column xsi:type="datetime" name="update_time" on_update="true" default="CURRENT_TIMESTAMP" nullable="true" comment="Update datatime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="mylsoft_baner_slider" resource="default" comment="Table for slider data">
+        <column xsi:type="int" name="id" identity="true" comment="Slider ID"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Silder name"/>
+        <column xsi:type="varchar" name="url" length="255" nullable="false" comment="Url page"/>
+        <column xsi:type="varchar" name="image" length="255" nullable="false" comment="Slider image"/>
+        <column xsi:type="smallint" name="status" unsigned="true" default="1" nullable="false"
+                comment="Slider status"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" comment="Store ID"/>
+        <column xsi:type="smallint" name="order" unsigned="true" nullable="true" comment="Order sort"/>
+        <column xsi:type="smallint" name="group_id" unsigned="true" nullable="false" comment="Group ID"/>
+        <column xsi:type="datetime" name="creation_time" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Crate datatime"/>
+        <column xsi:type="datetime" name="update_time" on_update="true" default="CURRENT_TIMESTAMP" nullable="true" comment="Update datatime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MYLSOFT_BANER_SLIDER_GROUP_ID" table="mylsoft_baner_slider"
+                    column="group_id" referenceTable="mylsoft_baner_slider_group" referenceColumn="id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="MYLSOFT_BANER_SLIDER_STORE_ID" table="mylsoft_baner_slider"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="MYLSOFT_BANER_SLIDER_GROUP_ID_INDEX" indexType="btree">
+            <column name="group_id"/>
+        </index>
+        <index referenceId="MYLSOFT_BANER_SLIDER_STORE_ID_INDEX" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>
