@@ -12,9 +12,8 @@ define([
 ], function ($, quote) {
     'use strict';
 
-    return function (shippingMethod) {
-        console.log('Action Paczkomaty');
-
+    return function () {
+        console.log('paczkomaty modal');
         /** @TODO: api key do configu jakiegos */
         window.easyPack.init({
             mapType: 'google',

@@ -24,8 +24,10 @@ define([
     'use strict';
 
     var mixin = {
+
         selectedPaczkomat: quote.getSelectedPaczkomat(),
         isVisiblePaczkomat: quote.getIsVisiblePaczkomaty(),
+
 
         selectShippingMethod: function (shippingMethod) {
             selectShippingMethodAction(shippingMethod);
@@ -40,7 +42,6 @@ define([
         },
 
         isSelected: ko.computed(function () {
-            console.log(quote.shippingAddress());
             if (null !== quote.shippingMethod() && 'paczkomaty' == quote.shippingMethod()['method_code']) {
                 selectShippingPaczkomaty(quote.shippingMethod());
             }

@@ -1,6 +1,7 @@
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="https://geowidget.easypack24.net/css/easypack.css"  src_type="url" />
+        <css src="https://geowidget.easypack24.net/css/easypack.css" src_type="url"/>
         <script src="https://geowidget.easypack24.net/js/sdk-for-javascript.js" src_type="url"/>
     </head>
     <body>
@@ -16,8 +17,42 @@
                                             <item name="children" xsi:type="array">
                                                 <item name="shippingAddress" xsi:type="array">
                                                     <item name="config" xsi:type="array">
-                                                        <item name="shippingMethodListTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-list-template</item>
-                                                        <item name="shippingMethodItemTemplate" xsi:type="string">MylSoft_Paczkomaty/custom-method-item-template</item>
+                                                        <item name="shippingMethodListTemplate" xsi:type="string">
+                                                            MylSoft_Paczkomaty/custom-method-list-template
+                                                        </item>
+                                                        <item name="shippingMethodItemTemplate" xsi:type="string">
+                                                            MylSoft_Paczkomaty/custom-method-item-template
+                                                        </item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="before-form" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="custom-checkout-form-container"
+                                                                      xsi:type="array">
+                                                                    <item name="component" xsi:type="string">
+                                                                        MylSoft_Paczkomaty/js/view/paczkomat-checkout-field
+                                                                    </item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">
+                                                                            MylSoft_Paczkomaty/paczkomat-checkout-field
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="step-config" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-rates-validation" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="paczkomaty-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">
+                                                                        MylSoft_Paczkomaty/js/view/paczkomaty-validator
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
                                                     </item>
                                                 </item>
                                             </item>

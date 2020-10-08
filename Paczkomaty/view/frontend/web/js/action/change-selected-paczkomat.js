@@ -14,6 +14,7 @@ define([
     'use strict';
 
     return function () {
+        console.log('change Paczkomaty()');
         quote.setSelectedPaczkomat(null);
         actionSelectShippingPaczkomaty();
     };

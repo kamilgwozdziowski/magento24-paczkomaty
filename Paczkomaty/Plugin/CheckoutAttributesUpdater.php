@@ -11,14 +11,10 @@ class CheckoutAttributesUpdater
         $customField = [
             'component' => 'Magento_Ui/js/form/element/abstract',
             'config' => [
-                // customScope is used to group elements within a single form (e.g. they can be validated separately)
                 'customScope' => 'shippingAddress.paczkomaty',
                 'customEntry' => null,
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/input',
-                'tooltip' => [
-                    'description' => 'this is what the field is for',
-                ],
             ],
             'dataScope' => 'shippingAddress.paczkomaty' . '.' . $customAttributeCode,
             'label' => 'Selected Paczkomat',
@@ -31,10 +27,11 @@ class CheckoutAttributesUpdater
             'filterBy' => null,
             'customEntry' => null,
             'visible' => true,
-            'value' => '' // value field is used to set a default value of the attribute
+            'value' => ''
         ];
 
-        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['shipping-address-fieldset']['children'][$customAttributeCode] = $customField;
+        /* @TODO: do usuniecia cała klasa zostawiam bo moze sie przydac zeby cos podpaczec  */
+        //$jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['shipping-address-fieldset']['children'][$customAttributeCode] = $customField;
         return $jsLayout;
     }
 }
