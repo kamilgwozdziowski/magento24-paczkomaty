@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="MylSoft_Baner::baner" title="Baner" translate="title" module="MylSoft_Baner" sortOrder="20" resource="MylSoft_Baner::baner"/>
-        <add id="MylSoft_Baner::all_baner" title="All Baner" translate="title" module="MylSoft_Baner" action="mylsoft_baner/index/index" sortOrder="30" resource="MylSoft_Baner::all_baner" parent="MylSoft_Baner::baner"/>
+        <add id="MylSoft_Baner::all_baner" title="All Baner" translate="title" module="MylSoft_Baner" action="mylsoft_baner/baner/index" sortOrder="30" resource="MylSoft_Baner::all_baner" parent="MylSoft_Baner::baner"/>
         <add id="MylSoft_Baner::all_group" title="All Group" translate="title" module="MylSoft_Baner" action="mylsoft_baner/group/index" sortOrder="40" resource="MylSoft_Baner::all_group" parent="MylSoft_Baner::baner"/>
     </menu>
 </config>

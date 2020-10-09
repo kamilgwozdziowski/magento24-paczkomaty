@@ -1,7 +1,6 @@
 <?php
 namespace MylSoft\Baner\Controller\Adminhtml\Baner;
 
-
 class Index extends \Magento\Backend\App\Action
 {
     /**
@@ -40,7 +39,6 @@ class Index extends \Magento\Backend\App\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('MylSoft_baner::all_baner')
             ->addBreadcrumb(__('All Baner'), __('All Baner'))
-            ->addBreadcrumb(__('Baner'), __('Baner'))
             ->getConfig()->getTitle()->prepend(__('All Baner'));
 
         return $resultPage;

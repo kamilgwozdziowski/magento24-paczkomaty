@@ -3,8 +3,8 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
     <acl>
         <resources>
-            <resource id="MylSoft_Baner::admin" title="Baner admin">
-                <resource id="MylSoft_Baner::baner" title="Baner" translate="title" sortOrder="130">
+            <resource id="Magento_Backend::admin">
+                <resource id="MylSoft_Baner::baner" title="Baner" translate="title" sortOrder="190">
                     <resource id="MylSoft_Baner::all_baner" title="AllBaner" translate="title" sortOrder="10">
                         <resource id="MylSoft_Baner::baner_create" title="Create" translate="title" sortOrder="10"/>
                         <resource id="MylSoft_Baner::baner_read" title="Read" translate="title" sortOrder="20"/>

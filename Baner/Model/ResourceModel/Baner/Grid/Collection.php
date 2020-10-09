@@ -37,14 +37,12 @@ class Collection extends BanerCollection implements SearchResultInterface
         \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,
         \Magento\Framework\Event\ManagerInterface $eventManager,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\EntityManager\MetadataPool $metadataPool,
         $mainTable,
         $eventPrefix,
         $eventObject,
         $resourceModel,
         $model = \Magento\Framework\View\Element\UiComponent\DataProvider\Document::class,
-        $connection = null,
+        \Magento\Framework\DB\Adapter\AdapterInterface $connection = null,
         \Magento\Framework\Model\ResourceModel\Db\AbstractDb $resource = null
     ) {
         parent::__construct(
@@ -52,8 +50,6 @@ class Collection extends BanerCollection implements SearchResultInterface
             $logger,
             $fetchStrategy,
             $eventManager,
-            $storeManager,
-            $metadataPool,
             $connection,
             $resource
         );

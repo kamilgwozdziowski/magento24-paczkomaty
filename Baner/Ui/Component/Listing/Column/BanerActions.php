@@ -1,8 +1,7 @@
 <?php
 
-namespace MylSoft\Baner\Ui\Component\Listing\Columns;
+namespace MylSoft\Baner\Ui\Component\Listing\Column;
 
-use Magento\Cms\Block\Adminhtml\Page\Grid\Renderer\Action\UrlBuilder;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Escaper;
 use Magento\Framework\UrlInterface;
@@ -16,28 +15,13 @@ use Magento\Ui\Component\Listing\Columns\Column;
 class BanerActions extends Column
 {
     /** Url path */
-    const CMS_URL_PATH_EDIT = 'mylsoft_baner/baner/edit';
-    const CMS_URL_PATH_DELETE = 'cms/baner/delete';
-
-    /**
-     * @var \Magento\Cms\Block\Adminhtml\Page\Grid\Renderer\Action\UrlBuilder
-     */
-    protected $actionUrlBuilder;
-
-    /**
-     * @var \Magento\Cms\ViewModel\Page\Grid\UrlBuilder
-     */
-    private $scopeUrlBuilder;
+    const MYLSOFT_BANER_URL_PATH_EDIT = 'mylsoft_baner/baner/edit';
+    const MYLSOFT_BANER_URL_PATH_DELETE = 'mylsoft_baner/baner/delete';
 
     /**
      * @var \Magento\Framework\UrlInterface
      */
     protected $urlBuilder;
-
-    /**
-     * @var string
-     */
-    private $editUrl;
 
     /**
      * @var Escaper
@@ -47,29 +31,19 @@ class BanerActions extends Column
     /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
-     * @param UrlBuilder $actionUrlBuilder
      * @param UrlInterface $urlBuilder
      * @param array $components
      * @param array $data
-     * @param string $editUrl
-     * @param \Magento\Cms\ViewModel\Page\Grid\UrlBuilder|null $scopeUrlBuilder
      */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        UrlBuilder $actionUrlBuilder,
         UrlInterface $urlBuilder,
         array $components = [],
-        array $data = [],
-        $editUrl = self::CMS_URL_PATH_EDIT,
-        \Magento\Cms\ViewModel\Page\Grid\UrlBuilder $scopeUrlBuilder = null
+        array $data = []
     ) {
         $this->urlBuilder = $urlBuilder;
-        $this->actionUrlBuilder = $actionUrlBuilder;
-        $this->editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
-        $this->scopeUrlBuilder = $scopeUrlBuilder ?: ObjectManager::getInstance()
-            ->get(\Magento\Cms\ViewModel\Page\Grid\UrlBuilder::class);
     }
 
     /**
@@ -87,7 +61,7 @@ class BanerActions extends Column
                     ];
                     $title = $this->getEscaper()->escapeHtml($item['title']);
                     $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::CMS_URL_PATH_DELETE, ['id' => $item['id']]),
+                        'href' => $this->urlBuilder->getUrl(self::MYLSOFT_BANER_URL_PATH_DELETE, ['id' => $item['id']]),
                         'label' => __('Delete'),
                         'confirm' => [
                             'title' => __('Delete %1', $title),

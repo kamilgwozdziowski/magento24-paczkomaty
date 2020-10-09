@@ -2,15 +2,8 @@
 
 namespace MylSoft\Baner\Model;
 
-use Magento\Cms\Model\Page\CustomLayout\CustomLayoutRepository;
-use Magento\Framework\App\ObjectManager;
-
-class Baner extends Magento\Framework\Model\AbstractModel
+class Baner extends \Magento\Framework\Model\AbstractModel
 {
-    /**
-     * No route page id
-     */
-    const NOROUTE_PAGE_ID = 'no-route';
 
     /**#@+
      * Baner Statuses
@@ -34,7 +27,7 @@ class Baner extends Magento\Framework\Model\AbstractModel
      *
      * @var string
      */
-    protected $_eventPrefix = 'mylsoft_baner_slider';
+    //protected $_eventPrefix = 'mylsoft_baner_slider';
 
     /**
      * Initialize resource model
@@ -47,7 +40,7 @@ class Baner extends Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * Prepare page's statuses, available event cms_page_get_available_statuses to customize statuses.
+     * Prepare page's statuses, available.
      *
      * @return array
      */
