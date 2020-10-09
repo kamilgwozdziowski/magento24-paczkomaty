@@ -9,9 +9,9 @@
     </argument>
     <settings>
         <buttons>
-            <button name="save" class="Magento\Cms\Block\Adminhtml\Block\Edit\SaveButton"/>
-            <button name="delete" class="Magento\Cms\Block\Adminhtml\Block\Edit\DeleteButton"/>
-            <button name="back" class="Magento\Cms\Block\Adminhtml\Block\Edit\BackButton"/>
+            <button name="save" class="MylSoft\Baner\Block\Adminhtml\Baner\Edit\SaveButton"/>
+            <button name="delete" class="MylSoft\Baner\Block\Adminhtml\Baner\Edit\DeleteButton"/>
+            <button name="back" class="MylSoft\Baner\Block\Adminhtml\Baner\Edit\BackButton"/>
         </buttons>
         <namespace>mylsoft_baner_baner_form</namespace>
         <dataScope>data</dataScope>
@@ -28,7 +28,7 @@
         <settings>
             <submitUrl path="mylsoft/baner/save"/>
         </settings>
-        <dataProvider class="Magento\Cms\Model\Block\DataProvider" name="baner_form_data_source">
+        <dataProvider class="MylSoft\Baner\Model\Baner\DataProvider" name="baner_form_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
@@ -186,7 +186,7 @@
             <formElements>
                 <multiselect>
                     <settings>
-                        <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                        <options class="MylSoft\Baner\Ui\Component\Listing\Column\Cms\Options"/>
                     </settings>
                 </multiselect>
             </formElements>
