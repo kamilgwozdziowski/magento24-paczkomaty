@@ -56,10 +56,13 @@ class BanerActions extends Column
                 $name = $this->getData('name');
                 if (isset($item['id'])) {
                     $item[$name]['edit'] = [
-                        'href' => $this->urlBuilder->getUrl($this->editUrl, ['id' => $item['id']]),
+                        'href' => $this->urlBuilder->getUrl(static::MYLSOFT_BANER_URL_PATH_DELETE,
+                            [
+                                'id' => $item['id'],
+                            ]),
                         'label' => __('Edit'),
                     ];
-                    $title = $this->getEscaper()->escapeHtml($item['title']);
+                    $title = $this->getEscaper()->escapeHtml($item['name']);
                     $item[$name]['delete'] = [
                         'href' => $this->urlBuilder->getUrl(self::MYLSOFT_BANER_URL_PATH_DELETE, ['id' => $item['id']]),
                         'label' => __('Delete'),
