@@ -186,7 +186,7 @@
             <formElements>
                 <multiselect>
                     <settings>
-                        <options class="MylSoft\Baner\Ui\Component\Listing\Column\Cms\Options"/>
+                        <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
                     </settings>
                 </multiselect>
             </formElements>

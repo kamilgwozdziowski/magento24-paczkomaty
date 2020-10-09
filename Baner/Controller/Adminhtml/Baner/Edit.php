@@ -25,7 +25,8 @@ class Edit extends \Magento\Backend\App\Action
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Registry $coreRegistry
-    ) {
+    )
+    {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $coreRegistry;
         parent::__construct($context);
@@ -60,12 +61,12 @@ class Edit extends \Magento\Backend\App\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('MylSoft_baner::all_baner')
             ->addBreadcrumb(__('All Baner'), __('All Baner'))
-            ->getConfig()->getName()->prepend(__('All Baner'))->addBreadcrumb(
-            $id ? __('Edit Baner') : __('New Baner'),
-            $id ? __('Edit Baner') : __('New Baner')
-        );
-        $resultPage->getConfig()->getName()->prepend(__('All Baners'));
-        $resultPage->getConfig()->getName()->prepend($model->getId() ? $model->getName() : __('New Baner'));
+            ->addBreadcrumb(
+                $id ? __('Edit Baner') : __('New Baner'),
+                $id ? __('Edit Baner') : __('New Baner')
+            );
+        $resultPage->getConfig()->getTitle()->prepend(__('All Baners'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Baner'));
         return $resultPage;
     }
 
