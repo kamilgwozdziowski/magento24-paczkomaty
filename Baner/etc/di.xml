@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mylsoft_baner_baner_listing_data_source" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Baner\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MylSoft\Baner\Model\ResourceModel\Baner\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mylsoft_baner_slider</argument>
+            <argument name="eventPrefix" xsi:type="string">mylsoft_baner_slider_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">baner_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Baner</argument>
+        </arguments>
+    </type>
+</config>
