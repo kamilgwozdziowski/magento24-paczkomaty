@@ -33,9 +33,9 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="MylSoft\Baner\Controller\Adminhtml\Baner\Upload">
+<!--    <type name="MylSoft\Baner\Controller\Adminhtml\Baner\Upload">
         <arguments>
             <argument name="imageUploader" xsi:type="object">MylSoft\Baner\BanerImageUpload</argument>
         </arguments>
-    </type>
+    </type>-->
 </config>

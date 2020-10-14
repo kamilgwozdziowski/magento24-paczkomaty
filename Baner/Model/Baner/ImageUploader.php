@@ -2,8 +2,11 @@
 
 namespace MylSoft\Baner\Model\Baner;
 
+use MylSoft\Baner\Model\Baner\FileInfo;
+use Magento\Framework\App\ObjectManager;
+
 /**
- * Banner image uploader
+ * Baner image uploader
  */
 class ImageUploader
 {

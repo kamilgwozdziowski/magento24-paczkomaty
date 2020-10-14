@@ -1,6 +1,6 @@
-<?php
+<?phps
 
-namespace MylSoft\Baner\Block\Adminhtml\Baner\Edit;
+namespace MylSoft\Baner\Block\Adminhtml\Group\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -9,19 +9,20 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
  */
 class DeleteButton extends GenericButton implements ButtonProviderInterface
 {
+
     /**
-     * @inheritDoc
+     * @return array
      */
     public function getButtonData()
     {
         $data = [];
-        if ($this->getBanerId()) {
+        if ($this->getGroupId() && $this->_isAllowedAction('MylSoft_Baner::group_delete')) {
             $data = [
-                'label' => __('Delete Baner'),
+                'label' => __('Delete Group'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\'' . __(
                     'Are you sure you want to do this?'
-                ) . '\', \'' . $this->getDeleteUrl() . '\', {"data": {}})',
+                ) . '\', \'' . $this->getDeleteUrl() . '\')',
                 'sort_order' => 20,
             ];
         }
@@ -29,12 +30,10 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
     }
 
     /**
-     * URL to send delete requests to.
-     *
      * @return string
      */
     public function getDeleteUrl()
     {
-        return $this->getUrl('*/*/delete', ['id' => $this->getBanerId()]);
+        return $this->getUrl('*/*/delete', ['id' => $this->getGroupId()]);
     }
 }

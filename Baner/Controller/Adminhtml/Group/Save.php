@@ -1,11 +1,11 @@
 <?php
 
-namespace MylSoft\Baner\Controller\Adminhtml\Baner;
+namespace MylSoft\Baner\Controller\Adminhtml\Group;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
-use MylSoft\Baner\Model\Baner\ImageUploader;
+use Magento\TestFramework\Inspection\Exception;
 
 class Save extends \Magento\Backend\App\Action
 {
@@ -15,22 +15,14 @@ class Save extends \Magento\Backend\App\Action
     protected $dataPersistor;
 
     /**
-     * @var ImageUploader
-     */
-    protected $imageUploader;
-
-    /**
      * @param Context $context
      * @param DataPersistorInterface $dataPersistor
-     * @param ImageUploader $imageUploader
      */
     public function __construct(
         Context $context,
-        DataPersistorInterface $dataPersistor,
-        ImageUploader $imageUploader
+        DataPersistorInterface $dataPersistor
     ) {
         $this->dataPersistor = $dataPersistor;
-        $this->imageUploader = $imageUploader;
         parent::__construct($context);
     }
 
@@ -42,6 +34,7 @@ class Save extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
 
@@ -52,16 +45,10 @@ class Save extends \Magento\Backend\App\Action
                 $data['id'] = null;
             }
 
-            $imageName = '';
-            if (!empty($data['image'])) {
-                $imageName = $data['image'][0]['name'];
-                $data['image'] = $imageName;
-            }
-
-            /** @var \MylSoft\Baner\Model\Baner $model */
-            $model = $this->_objectManager->create('MylSoft\Baner\Model\Baner')->load($id);
+            /** @var \MylSoft\Baner\Model\Group $model */
+            $model = $this->_objectManager->create('MylSoft\Baner\Model\Group')->load($id);
             if (!$model->getId() && $id) {
-                $this->messageManager->addError(__('This baner no longer exists.'));
+                $this->messageManager->addError(__('This group no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
             }
 
@@ -69,11 +56,8 @@ class Save extends \Magento\Backend\App\Action
 
             try {
                 $model->save();
-                if ($imageName) {
-                    $this->imageUploader->moveFileFromTmp($imageName);
-                }
-                $this->messageManager->addSuccess(__('You saved the baner.'));
-                $this->dataPersistor->clear('mylsoft_baner');
+                $this->messageManager->addSuccess(__('You saved the group.'));
+                $this->dataPersistor->clear('group_baner');
 
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId()]);
@@ -82,14 +66,13 @@ class Save extends \Magento\Backend\App\Action
             } catch (LocalizedException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the baner.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the group.'));
             }
 
-            $this->dataPersistor->set('mylsoft_baner', $data);
+            $this->dataPersistor->set('group_baner', $data);
             return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
         }
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        return $resultRedirect->setPath('*/');
+        return $resultRedirect->setPath('*/*/');
     }
 
     /**
@@ -99,6 +82,6 @@ class Save extends \Magento\Backend\App\Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('MylSoft_Baner::baner_update') || $this->_authorization->isAllowed('MylSoft_Baner::baner_create');
+        return $this->_authorization->isAllowed('MylSoft_Baner::group_update') || $this->_authorization->isAllowed('MylSoft_Baner::group_create');
     }
 }

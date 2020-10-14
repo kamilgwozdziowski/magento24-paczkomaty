@@ -5,7 +5,9 @@ namespace MylSoft\Baner\Model\Baner;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\Modifier\PoolInterface;
 use MylSoft\Baner\Model\ResourceModel\Baner\CollectionFactory;
-
+use MylSoft\Baner\Model\Baner\FileInfo;
+use Magento\Framework\Filesystem;
+use Magento\Framework\App\ObjectManager;
 /**
  * Class DataProvider
  */
@@ -25,6 +27,11 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @var array
      */
     protected $loadedData;
+
+    /**
+     * @var Filesystem
+     */
+    private $fileInfo;
 
     /**
      * Constructor
@@ -66,6 +73,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         $items = $this->collection->getItems();
         /** @var \MylSoft\Baner\Model\Block $baner */
         foreach ($items as $baner) {
+            $baner = $this->convertValues($baner);
             $this->loadedData[$baner->getId()] = $baner->getData();
         }
 
@@ -78,5 +86,43 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         }
 
         return $this->loadedData;
+    }
+
+    /**
+     * Converts image data to acceptable for rendering format
+     *
+     * @param \MylSoft\Baner\Model\Baner $baner
+     * @return \MylSoft\Baner\Model\Baner $baner
+     */
+    private function convertValues($baner)
+    {
+        $fileName = $baner->getImage();
+        $image = [];
+        if ($this->getFileInfo()->isExist($fileName)) {
+            $stat = $this->getFileInfo()->getStat($fileName);
+            $mime = $this->getFileInfo()->getMimeType($fileName);
+            $image[0]['name'] = $fileName;
+            $image[0]['url'] = $baner->getImageUrl();
+            $image[0]['size'] = isset($stat) ? $stat['size'] : 0;
+            $image[0]['type'] = $mime;
+        }
+        $baner->setImage($image);
+
+        return $baner;
+    }
+
+    /**
+     * Get FileInfo instance
+     *
+     * @return FileInfo
+     *
+     * @deprecated 101.1.0
+     */
+    private function getFileInfo()
+    {
+        if ($this->fileInfo === null) {
+            $this->fileInfo = ObjectManager::getInstance()->get(FileInfo::class);
+        }
+        return $this->fileInfo;
     }
 }

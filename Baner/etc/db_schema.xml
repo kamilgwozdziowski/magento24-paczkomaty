@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="mylsoft_baner_slider_group" resource="default" comment="Table for sliders group">
+    <table name="mylsoft_baner_group" resource="default" comment="Table for sliders group">
         <column xsi:type="smallint" name="id" unsigned="true" identity="true" comment="Group ID"/>
         <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Group name"/>
         <column xsi:type="datetime" name="creation_time" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Crate datatime"/>
@@ -11,7 +11,7 @@
         </constraint>
     </table>
 
-    <table name="mylsoft_baner_slider" resource="default" comment="Table for slider data">
+    <table name="mylsoft_baner" resource="default" comment="Table for slider data">
         <column xsi:type="int" name="id" identity="true" comment="Slider ID"/>
         <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Silder name"/>
         <column xsi:type="varchar" name="url" length="255" nullable="false" comment="Url page"/>
@@ -27,7 +27,7 @@
             <column name="id"/>
         </constraint>
         <constraint xsi:type="foreign" referenceId="MYLSOFT_BANER_SLIDER_GROUP_ID" table="mylsoft_baner_slider"
-                    column="group_id" referenceTable="mylsoft_baner_slider_group" referenceColumn="id" onDelete="CASCADE"/>
+                    column="group_id" referenceTable="mylsoft_baner_group" referenceColumn="id" onDelete="CASCADE"/>
         <constraint xsi:type="foreign" referenceId="MYLSOFT_BANER_SLIDER_STORE_ID" table="mylsoft_baner_slider"
                     column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
         <index referenceId="MYLSOFT_BANER_SLIDER_GROUP_ID_INDEX" indexType="btree">
