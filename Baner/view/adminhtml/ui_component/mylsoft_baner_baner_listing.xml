@@ -16,10 +16,10 @@
         </buttons>
         <spinner>baner_columns</spinner>
         <deps>
-            <dep>mylsoft_baner_baner_listing.mylsoft_baner_baner_listing_data_source</dep>
+            <dep>mylsoft_baner_baner_listing.mylsoft_baner_slider_baner_listing_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="mylsoft_baner_baner_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="mylsoft_baner_slider_baner_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">id</param>
@@ -27,7 +27,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>MylSoft_Baner::all_baner</aclResource>
-        <dataProvider class="\Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="mylsoft_baner_baner_listing_data_source">
+        <dataProvider class="\Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="mylsoft_baner_slider_baner_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>

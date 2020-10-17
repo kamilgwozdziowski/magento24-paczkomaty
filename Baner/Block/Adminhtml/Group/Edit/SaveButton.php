@@ -24,7 +24,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                     'buttonAdapter' => [
                         'actions' => [
                             [
-                                'targetName' => 'mylsoft_baner_slider_group_form.mylsoft_baner_slider_group_form',
+                                'targetName' => 'mylsoft_baner_group_form.mylsoft_baner_group_form',
                                 'actionName' => 'save',
                                 'params' => [
                                     true,
@@ -58,7 +58,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                         'buttonAdapter' => [
                             'actions' => [
                                 [
-                                    'targetName' => 'mylsoft_baner_slider_group_form.mylsoft_baner_slider_group_form',
+                                    'targetName' => 'mylsoft_baner_group_form.mylsoft_baner_group_form',
                                     'actionName' => 'save',
                                     'params' => [
                                         true,
@@ -80,7 +80,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
                         'buttonAdapter' => [
                             'actions' => [
                                 [
-                                    'targetName' => 'mylsoft_baner_slider_group_form.mylsoft_baner_slider_group_form',
+                                    'targetName' => 'mylsoft_baner_group_form.mylsoft_baner_group_form',
                                     'actionName' => 'save',
                                     'params' => [
                                         true,
