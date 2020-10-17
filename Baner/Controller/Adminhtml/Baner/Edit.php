@@ -59,7 +59,7 @@ class Edit extends \Magento\Backend\App\Action
         // 5. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('MylSoft_baner::all_baner')
+        $resultPage->setActiveMenu('MylSoft_Baner::all_baner')
             ->addBreadcrumb(__('All Baner'), __('All Baner'))
             ->addBreadcrumb(
                 $id ? __('Edit Baner') : __('New Baner'),

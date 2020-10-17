@@ -3,7 +3,8 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="mylsoft_baner_baner_listing_data_source" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Baner\Grid\Collection</item>
+                <item name="mylsoft_baner_slider_baner_listing_data_source" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Baner\Grid\Collection</item>
+                <item name="mylsoft_baner_slider_group_listing_data_source" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Group\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -13,6 +14,14 @@
             <argument name="eventPrefix" xsi:type="string">mylsoft_baner_slider_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">baner_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Baner</argument>
+        </arguments>
+    </type>
+    <type name="MylSoft\Baner\Model\ResourceModel\Group\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mylsoft_baner_slider_group</argument>
+            <argument name="eventPrefix" xsi:type="string">mylsoft_baner_slider_group_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">group_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MylSoft\Baner\Model\ResourceModel\Group</argument>
         </arguments>
     </type>
     <virtualType name="MylSoft\Baner\BanerImageUpload" type="Magento\Catalog\Model\ImageUploader">
