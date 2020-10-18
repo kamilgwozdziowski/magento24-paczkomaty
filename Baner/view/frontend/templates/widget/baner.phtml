@@ -1,5 +1,25 @@
 <?php
-/** @var \Pronko\BannerWidget\Block\Banner $block */
+/** @var \MylSoft\Baner\Block\Baner $block */
+
+$baners = $block->getBaner();
 ?>
 
-<p>test</p>
+<?php if ($baners->getSize()): ?>
+    <ul class="mylsoft-baner">
+        <?php foreach ($baners as $baner): ?>
+            <li>
+                <img src="<?= $baner->getImageUrl(); ?>" alt="<?= $baner->getName(); ?>" width="100%"/>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <script type="text/javascript">
+        require(['jquery', 'slick'], function ($) {
+            $('.mylsoft-baner').slick({
+                dots: false,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+    </script>
+<?php endif; ?>

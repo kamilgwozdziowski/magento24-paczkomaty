@@ -5,17 +5,9 @@
         <label translate="true">MylSoft Baner</label>
         <description translate="true">Display baner of group</description>
         <parameters>
-            <parameter name="group_id" xsi:type="select" required="true" visible="true">
-                <label translate="true">Group Type</label>
-                <description translate="true">Select with group baner types should by show</description>
-                <options>
-                    <option name="default" value="all_products" selected="true">
-                        <label translate="true">Group 1</label>
-                    </option>
-                    <option name="item" value="new_products">
-                        <label translate="true">Group 2</label>
-                    </option>
-                </options>
+            <parameter name="group_id" xsi:type="select" visible="true" required="true"
+                       source_model="MylSoft\Baner\Model\Group\Config\Source\Options">
+                <label translate="true">Group Name</label>
             </parameter>
         </parameters>
     </widget>
