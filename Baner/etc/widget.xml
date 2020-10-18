@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="mylsoft_baner" class="MylSoft\Baner\Block\Widget\Baner">
+        <label translate="true">MylSoft Baner</label>
+        <description translate="true">Display baner of group</description>
+        <parameters>
+            <parameter name="group_id" xsi:type="select" required="true" visible="true">
+                <label translate="true">Group Type</label>
+                <description translate="true">Select with group baner types should by show</description>
+                <options>
+                    <option name="default" value="all_products" selected="true">
+                        <label translate="true">Group 1</label>
+                    </option>
+                    <option name="item" value="new_products">
+                        <label translate="true">Group 2</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

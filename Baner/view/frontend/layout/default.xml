@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MylSoft_Baner::css/slick.css" />
+    </head>
     <body>
-        <referenceBlock name="content">
-            <block class="MylSoft\Baner\Block\Baner" name="mylsoft.baner"
+        <referenceBlock name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="mylsoft.baner.widget.js"
                    template="MylSoft_Baner::script.phtml"/>
         </referenceBlock>
     </body>

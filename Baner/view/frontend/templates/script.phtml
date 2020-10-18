@@ -1,19 +1,7 @@
-<div data-bind="scope: 'mylsoft-baner'">
-    <h2 data-bind="text: title"></h2>
-    <p data-bind="text: qty()"></p>
-    <button data-bind="click: clickTest">TU</button>
-</div>
 <script type="text/x-magento-init">
     {
         "*": {
-            "Magento_Ui/js/core/app": {
-                "components":  {
-                    "mylsoft-baner": {
-                        "component": "MylSoft_Baner/js/component",
-                        "title": "MylSoft Baner"
-                    }
-                }
-            }
+            "MylSoft_Baner/js/slick": {}
         }
     }
 </script>
