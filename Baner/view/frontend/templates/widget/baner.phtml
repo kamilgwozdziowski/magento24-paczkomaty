@@ -4,11 +4,19 @@
 $baners = $block->getBaner();
 ?>
 
+<div id="mylsoft-baner">
 <?php if ($baners->getSize()): ?>
     <ul class="mylsoft-baner">
         <?php foreach ($baners as $baner): ?>
             <li>
-                <img src="<?= $baner->getImageUrl(); ?>" alt="<?= $baner->getName(); ?>" width="100%"/>
+                    <?php if ($baner->getUrl()): ?>
+                        <a href="<?= $baner->getUrl(); ?>" class="content" title="<?= $baner->getName(); ?>" target="_blank">
+                    <?php endif; ?>
+                    <img src="<?= $baner->getImageUrl(); ?>" alt="<?= $baner->getName(); ?>" width="100%"/>
+                    <h3><?= $baner->getName() ?></h3>
+                    <?php if ($baner->getUrl()): ?>
+                        </a>
+                    <?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -23,3 +31,4 @@ $baners = $block->getBaner();
         });
     </script>
 <?php endif; ?>
+</div>
