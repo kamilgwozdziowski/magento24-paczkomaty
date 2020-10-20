@@ -4,13 +4,4 @@
     <head>
         <css src="MylSoft_Baner::css/slick.css" />
     </head>
-    <body>
-<!--
-        <move element="content" destination="top.links" before="-"/>
--->
-        <referenceBlock name="before.body.end">
-            <block class="Magento\Framework\View\Element\Template" name="mylsoft.baner.widget.js"
-                   template="MylSoft_Baner::script.phtml"/>
-        </referenceBlock>
-    </body>
 </page>
