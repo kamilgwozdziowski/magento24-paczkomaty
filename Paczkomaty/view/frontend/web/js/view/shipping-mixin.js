@@ -42,7 +42,11 @@ define([
         },
 
         isSelected: ko.computed(function () {
-            if (null !== quote.shippingMethod() && 'paczkomaty' == quote.shippingMethod()['method_code']) {
+            var valuePaczkomat = $('[name="paczkomat"]').val();
+
+            if (null !== quote.shippingMethod() &&
+                'paczkomaty' == quote.shippingMethod()['method_code'] &&
+                !valuePaczkomat) {
                 selectShippingPaczkomaty(quote.shippingMethod());
             }
             return quote.shippingMethod() ?
@@ -52,6 +56,25 @@ define([
 
         changeSelectedPaczkomat: function () {
             changeSelectedPaczkomat();
+        },
+
+        setShippingInformation: function () {
+            console.log('setShippingInformation');
+            console.log(this.validatePaczkomaty());
+            if (this.validatePaczkomaty()) {
+                this._super();
+            }
+        },
+        validatePaczkomaty: function () {
+            console.log('validatePaczkomaty');
+            this.source.set('params.invalid', false);
+            this.source.trigger('paczkomat.data.validate');
+
+            if (this.source.get('params.invalid')) {
+                return false;
+            }
+
+            return true;
         }
     };
 
