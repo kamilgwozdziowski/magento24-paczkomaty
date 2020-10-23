@@ -42,19 +42,6 @@
                                                         </item>
                                                     </item>
                                                 </item>
-                                                <item name="step-config" xsi:type="array">
-                                                    <item name="children" xsi:type="array">
-                                                        <item name="shipping-rates-validation" xsi:type="array">
-                                                            <item name="children" xsi:type="array">
-                                                                <item name="paczkomaty-rates-validation" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">
-                                                                        MylSoft_Paczkomaty/js/view/paczkomaty-validator
-                                                                    </item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
-                                                    </item>
-                                                </item>
                                             </item>
                                         </item>
                                     </item>
