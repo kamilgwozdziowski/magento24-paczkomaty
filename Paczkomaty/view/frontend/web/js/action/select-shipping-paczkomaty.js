@@ -13,7 +13,6 @@ define([
     'use strict';
 
     return function () {
-        console.log('paczkomaty modal');
         /** @TODO: api key do configu jakiegos */
         window.easyPack.init({
             mapType: 'google',
@@ -27,7 +26,6 @@ define([
             }
         });
 
-        var self = this;
         /** @TODO: wielkosc tez do configu */
         window.easyPack.modalMap(function (point, modal) {
             modal.closeModal();

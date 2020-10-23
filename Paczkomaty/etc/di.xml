@@ -2,7 +2,4 @@
     <type name="Magento\Checkout\Model\ShippingInformationManagement">
         <plugin name="mylsoft_paczkomaty_save_delivery_date_in_quote" type="MylSoft\Paczkomaty\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="1"/>
     </type>
-    <type name="\Magento\Checkout\Block\Checkout\LayoutProcessor">
-        <plugin name="mylsoft_paczkomaty_new_field" type="\MylSoft\Paczkomaty\Plugin\Checkout\Block\LayoutProcessor" sortOrder="1" disabled="false" />
-    </type>
 </config>

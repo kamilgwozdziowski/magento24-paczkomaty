@@ -53,9 +53,6 @@ define([
                 }
             };
 
-            console.log('payload');
-            console.log(payload);
-
             //payloadExtender(payload);
 
             fullScreenLoader.startLoader();
