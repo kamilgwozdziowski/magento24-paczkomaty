@@ -2,4 +2,8 @@
     <type name="Magento\Checkout\Model\ShippingInformationManagement">
         <plugin name="mylsoft_paczkomaty_save_delivery_date_in_quote" type="MylSoft\Paczkomaty\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="1"/>
     </type>
+   <!-- <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="save_paczkomat_attribute" type="MylSoft\Paczkomaty\Plugin\CustomerSave"/>
+        &lt;!&ndash;<plugin name="get_paczkomat_attribute" type="MylSoft\Paczkomaty\Plugin\CustomerGet"/>&ndash;&gt;
+    </type>-->
 </config>
