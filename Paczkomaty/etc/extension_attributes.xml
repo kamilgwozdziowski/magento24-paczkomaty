@@ -8,4 +8,7 @@
     <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
         <attribute code="paczkomat" type="string"/>
     </extension_attributes>
+    <extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
+        <attribute code="paczkomat" type="string"/>
+    </extension_attributes>
 </config>
