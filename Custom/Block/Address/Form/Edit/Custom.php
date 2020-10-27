@@ -62,7 +62,7 @@ class Custom extends Template
             {
                 $this->_address = null;
             }
-        } catch (NoSuchEntityException $e
+        } catch (NoSuchEntityException $e)
         {
             $this->_address = null;
         }
