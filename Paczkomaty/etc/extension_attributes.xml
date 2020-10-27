@@ -11,4 +11,7 @@
     <extension_attributes for="\Magento\Customer\Api\Data\CustomerInterface">
         <attribute code="paczkomat" type="MylSoft\Baner\Api\Data\CustomerPaczkomatInterface"/>
     </extension_attributes>
+    <extension_attributes for="\Magento\Customer\Api\Data\AddressInterface">
+        <attribute code="custom" type="string" />
+    </extension_attributes>
 </config>
