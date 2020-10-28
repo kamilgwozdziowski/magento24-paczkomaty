@@ -1,0 +1,13 @@
+<?php /** @var \MylSoft\Custom\Block\Customer\Widget\Custom $block */ ?>
+<div class="field field-<?= $block->getFieldName() ?><?= $block->isRequired() ? ' required': ''; ?>">
+    <label class="label" for="<?= $block->getFieldName() ?>"><span><?= $block->getFieldLabel() ?></span></label>
+    <div class="control">
+        <input type="text"
+               id="<?= $block->getFieldId() ?>"
+               name="<?= $block->getFieldName() ?>"
+               value="<?= $block->getValue() ?>"
+               title="<?= $block->getFieldLabel() ?>"
+               class="input-text<?= $block->isRequired() ? ' required-entry': ''; ?>"
+               <?= $block->isRequired() ? ' data-validate="{required:true}" aria-required="true"': ''; ?> />
+    </div>
+</div>
