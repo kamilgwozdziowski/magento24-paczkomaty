@@ -43,6 +43,11 @@ class DefaultConfigProvider implements ConfigProviderInterface
     protected $priceHelper;
 
     /**
+     * @var \Magento\Checkout\Helper\Cart
+     */
+    protected $cartHelper;
+
+    /**
      * @param \Magento\Catalog\Model\ProductFactory $product
      * @param \Magento\Catalog\Model\CategoryFactory $categoryFactory
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
@@ -56,7 +61,8 @@ class DefaultConfigProvider implements ConfigProviderInterface
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Catalog\Model\Product\Visibility $productVisibility,
         \Magento\Catalog\Model\Config $catalogConfig,
-        \Magento\Framework\Pricing\Helper\Data $priceHelper
+        \Magento\Framework\Pricing\Helper\Data $priceHelper,
+        \Magento\Checkout\Helper\Cart $cartHelper
     )
     {
         $this->productCollection = $product;
@@ -65,6 +71,7 @@ class DefaultConfigProvider implements ConfigProviderInterface
         $this->productVisibility = $productVisibility;
         $this->catalogConfig = $catalogConfig;
         $this->priceHelper = $priceHelper;
+        $this->cartHelper = $cartHelper;
     }
 
     /**
@@ -94,7 +101,8 @@ class DefaultConfigProvider implements ConfigProviderInterface
                 'id' => $_product->getId(),
                 'name' => $_product->getName(),
                 'price' => $this->priceHelper->currency($_product->getFinalPrice(), true, false),
-                'thumbnail' => $_product->getThumbnail()
+                'thumbnail' => $_product->getThumbnail(),
+                'addCartUrl' => $this->cartHelper->getAddUrl($_product)
             ];
         }
 

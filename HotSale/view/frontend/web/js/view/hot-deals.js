@@ -75,7 +75,33 @@ define(
              * @returns void
              */
             addToCart: function (formElement) {
-                console.log($(formElement).serializeArray());
+                var self = this;
+                var products = $(formElement).serializeArray();
+                $.each(products, function (key, product) {
+                    if(window.checkoutConfig.hot_deals_product[key]){
+                        // @TODO: pobiera złe ja ID powienno byc w kluczy wtedy bedzie ok ale cos nie działa
+                        self.addToCartAjax(window.checkoutConfig.hot_deals_product[key]);
+                    }
+                });
+            },
+
+            addToCartAjax: function (product) {
+                $.post({
+                    url: product['addCartUrl'],
+                    data: {
+                        'qty': 1,
+                        'product': product['id'],
+                        'form_key': $.cookie('form_key')
+                    },
+                    showLoader: true,
+                    success: function (res) {
+                        stepNavigator.next();
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        console.log(err.Message);
+                    }
+                });
             },
 
             /**
