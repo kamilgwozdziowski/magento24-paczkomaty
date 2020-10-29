@@ -1,3 +1,4 @@
+alert(1);
 define([
     'Magento_Ui/js/form/form',
     'Magento_Checkout/js/model/step-navigator',
