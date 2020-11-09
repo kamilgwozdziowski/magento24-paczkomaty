@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mylsoft_myapi_product_attribute" resource="default" comment="Table for test API">
+        <column xsi:type="smallint" name="id" unsigned="true" identity="true" comment="ID"/>
+        <column xsi:type="smallint" name="product_id" unsigned="true" comment="Product ID"/>
+        <column xsi:type="varchar" name="attribute" length="255" nullable="false" comment="Attribute name"/>
+        <column xsi:type="datetime" name="creation_time" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Crate datatime"/>
+        <column xsi:type="datetime" name="update_time" on_update="true" default="CURRENT_TIMESTAMP" nullable="true" comment="Update datatime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

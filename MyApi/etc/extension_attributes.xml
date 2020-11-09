@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="custom_data_static_value" type="string" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="myapi_attribute" type="\MylSoft\MyApi\Api\Data\CustomExtensionAttributeInterface">
+            <join reference_table="mylsoft_myapi_product_attribute" join_on_field="entity_id" reference_field="id">
+                <field>attribute</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+<!--    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="custom_values" type="MylSoft\MyApi\Api\Data\CustomExtensionAttributeInterface[]" />
+    </extension_attributes>-->
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="stock_item" type="Magento\CatalogInventory\Api\Data\StockItemInterface">
+            <join reference_table="cataloginventory_stock_item" reference_field="product_id" join_on_field="entity_id">
+                <field>qty</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+</config>

@@ -3,4 +3,19 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference type="MylSoft\MyApi\Model\Custom" for="MylSoft\MyApi\Api\CustomInterface"></preference>
     <preference type="MylSoft\MyApi\Model\CustomData" for="MylSoft\MyApi\Api\Data\CustomDataInterface"></preference>
+    <preference type="MylSoft\MyApi\Model\CustomExtensionAttribute" for="MylSoft\MyApi\Api\Data\CustomExtensionAttributeInterface"></preference>
+    <type name="\Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="customDataAttribiute" type="MylSoft\MyApi\Plugin\CustomDataLoad" sortOrder="1" />
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Magento\Catalog\Api\Data\ProductInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="custiomExtensionRead" xsi:type="string">MylSoft\MyApi\Model\ReadHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
